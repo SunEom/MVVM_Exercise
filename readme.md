@@ -6,3 +6,10 @@
 [Refactoring 이전 코드](https://github.com/SunEom/TIL/tree/main/Swift/Upper%20Intermediate/SubwaySearch)
 
 진행 상황 : ing
+
+### 사용 기술 및 특징
+
+1. RxSwift, RxCocoa
+2. AutoLayout 코드 구현 (StoryBoard 사용 X) 
+
+
