@@ -55,6 +55,9 @@ class StationSearchViewController : UIViewController {
                 let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
                 cell.textLabel?.text = data.name
                 cell.detailTextLabel?.text = data.line
+                cell.backgroundColor = .white
+                cell.textLabel?.textColor = .black
+                cell.detailTextLabel?.textColor = .black
                 return cell
             }
             .disposed(by: disposeBag)
@@ -71,6 +74,25 @@ class StationSearchViewController : UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.cellSelected
+            .withLatestFrom(viewModel.cellData) { idx, stations in
+                return stations[idx]
+            }
+            .subscribe(onNext: {
+                viewModel.selectedStation.onNext($0)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.selectedStation
+            .subscribe(onNext: {
+                let vm = StationDetailViewModel()
+                let vc = StationDetailViewController()
+                vc.bind(vm)
+                vm.station.onNext($0)
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+    
     }
     
     private func attribute() {
@@ -81,6 +103,12 @@ class StationSearchViewController : UIViewController {
         title = "지하철 도착 정보"
         
         tableView.backgroundColor = .white
+        
+        searchController.searchBar.tintColor = .black
+        searchController.searchBar.barTintColor = .black
+        searchController.searchBar.searchTextField.tintColor = .black
+        searchController.searchBar.searchTextField.textColor = .black
+
         
     }
     

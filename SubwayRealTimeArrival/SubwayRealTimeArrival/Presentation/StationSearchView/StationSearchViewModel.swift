@@ -32,7 +32,6 @@ struct StationSearchViewModel {
                 return data
             }
             .map { data in
-                print(data)
                 return data.SearchInfoBySubwayNameService.row
             }
             .asDriver(onErrorJustReturn: [])
