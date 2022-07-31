@@ -10,11 +10,16 @@ import RxRelay
 import RxCocoa
 
 struct StationSearchViewModel {
+    let disposeBag = DisposeBag()
     
     let keyword = PublishRelay<String?>()
+    let textChangeDidfinish = PublishRelay<Void>()
+    let textChangeStart = PublishRelay<Void>()
+    let cellSelected = PublishRelay<Int>()
     
     let cellData: Driver<[Station]>
-
+    let selectedStation = PublishSubject<Station>()
+    
     init() {
         
         cellData = keyword
@@ -31,6 +36,6 @@ struct StationSearchViewModel {
                 return data.SearchInfoBySubwayNameService.row
             }
             .asDriver(onErrorJustReturn: [])
-            
+        
     }
 }

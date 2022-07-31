@@ -25,7 +25,6 @@ struct StationSearchNetwork {
     func searchStation(query: String) -> Single<Result<SearchInfoBySubwayNameServiceData, Error>> {
         
         guard let url = URL(string: "http://openapi.seoul.go.kr:8088/sample/json/SearchInfoBySubwayNameService/1/5/\(query)/".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
-            print(api.searchStation(query: query))
             print("Error invalidURL")
             return Single.just(.failure(StationSearchError.invalidURL))
         }
@@ -37,7 +36,6 @@ struct StationSearchNetwork {
             .map { data in
                 do {
                     let stationData = try JSONDecoder().decode(SearchInfoBySubwayNameServiceData.self, from: data)
-                    
                     return .success(stationData)
                 } catch {
                     print("Error invalidJSON")

@@ -31,16 +31,45 @@ class StationSearchViewController : UIViewController {
         searchController.searchBar.rx.text
             .bind(to: viewModel.keyword)
             .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.textDidEndEditing
+            .bind(to: viewModel.textChangeDidfinish)
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.cancelButtonClicked
+            .bind(to: viewModel.textChangeDidfinish)
+            .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.textDidBeginEditing
+            .bind(to: viewModel.textChangeStart)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .map { $0.row }
+            .bind(to: viewModel.cellSelected)
+            .disposed(by: disposeBag)
+            
     
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, data in
-                let indexPath = IndexPath(row: row, section: 0)
                 let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-
                 cell.textLabel?.text = data.name
                 cell.detailTextLabel?.text = data.line
                 return cell
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.textChangeDidfinish
+            .subscribe(onNext: {
+                self.tableView.isHidden = true
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.textChangeStart
+            .subscribe(onNext: {
+                self.tableView.isHidden = false
+            })
+            .disposed(by: disposeBag)
         
     }
     
