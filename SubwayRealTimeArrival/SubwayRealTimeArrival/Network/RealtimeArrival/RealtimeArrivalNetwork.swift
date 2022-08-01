@@ -22,7 +22,8 @@ struct RealtimeArrivalNetwork {
     }
     
     func fetchRealtimeArrivalData(for station : Station) -> Single<Result<ArrivalData, Error>> {
-        guard let url = URL(string: "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(station.name.replacingOccurrences(of: "역", with: ""))".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
+        
+        guard let url = URL(string: "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(parseStationName(station: station))".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
             print("invalid URL")
             return Single.just(.failure(RealtimeArrivalError.invalidURL))
         }
@@ -46,5 +47,16 @@ struct RealtimeArrivalNetwork {
             }
             .asSingle()
         
+    }
+    
+    private func parseStationName(station: Station) -> String {
+        var name = station.name
+        
+        if name.last == "역" {
+            name.remove(at: name.lastIndex(of: name.last!)!)
+            return name
+        } else {
+            return name
+        }
     }
 }
