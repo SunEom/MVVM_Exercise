@@ -15,16 +15,10 @@ struct StationDetailViewModel {
     
     let cellData: Driver<[RealtimeArrivalData]>
     
-    init() {
+    init(_ model: StationDetail = StationDetail()) {
         cellData = station
-            .flatMapLatest({ station in
-                RealtimeArrivalNetwork()
-                    .fetchRealtimeArrivalData(for: station)
-            })
-            .compactMap { result in
-                guard case .success(let data) = result else { return [] }
-                return data.realtimeArrivalList
-            }
+            .flatMapLatest(model.fetchRealtimeArrivalData)
+            .compactMap(model.parseData)
             .asDriver(onErrorJustReturn: [])
     }
 }

@@ -23,6 +23,8 @@
 		BFD76AE3289633E10095F611 /* StationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AE2289633E10095F611 /* StationDetailViewModel.swift */; };
 		BFD76AE7289636A50095F611 /* RealtimeArrivalNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AE6289636A50095F611 /* RealtimeArrivalNetwork.swift */; };
 		BFD76AE9289636FF0095F611 /* ArrivalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AE8289636FF0095F611 /* ArrivalData.swift */; };
+		BFD76AEC2897C1D20095F611 /* StationSearchRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AEB2897C1D20095F611 /* StationSearchRespository.swift */; };
+		BFD76AEE2897C47B0095F611 /* StationDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AED2897C47B0095F611 /* StationDetailRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		BFD76AE2289633E10095F611 /* StationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewModel.swift; sourceTree = "<group>"; };
 		BFD76AE6289636A50095F611 /* RealtimeArrivalNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeArrivalNetwork.swift; sourceTree = "<group>"; };
 		BFD76AE8289636FF0095F611 /* ArrivalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalData.swift; sourceTree = "<group>"; };
+		BFD76AEB2897C1D20095F611 /* StationSearchRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchRespository.swift; sourceTree = "<group>"; };
+		BFD76AED2897C47B0095F611 /* StationDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,14 +80,12 @@
 		BF5941D528942911006869EA /* SubwayRealTimeArrival */ = {
 			isa = PBXGroup;
 			children = (
-				BF5941D628942911006869EA /* AppDelegate.swift */,
-				BF5941D828942911006869EA /* SceneDelegate.swift */,
+				BFD76AF12897C9310095F611 /* Delegate */,
+				BFD76AF02897C7B40095F611 /* Repository */,
 				BF5941F72894322C006869EA /* Entity */,
 				BF5941FA28943379006869EA /* Network */,
 				BF5941EF28942989006869EA /* Presentation */,
-				BF5941DF28942914006869EA /* Assets.xcassets */,
-				BF5941E128942914006869EA /* LaunchScreen.storyboard */,
-				BF5941E428942914006869EA /* Info.plist */,
+				BFD76AEF2897C6FB0095F611 /* SupportingFiles */,
 			);
 			path = SubwayRealTimeArrival;
 			sourceTree = "<group>";
@@ -148,6 +150,34 @@
 				BFD76AE6289636A50095F611 /* RealtimeArrivalNetwork.swift */,
 			);
 			path = RealtimeArrival;
+			sourceTree = "<group>";
+		};
+		BFD76AEF2897C6FB0095F611 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BF5941DF28942914006869EA /* Assets.xcassets */,
+				BF5941E128942914006869EA /* LaunchScreen.storyboard */,
+				BF5941E428942914006869EA /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		BFD76AF02897C7B40095F611 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BFD76AED2897C47B0095F611 /* StationDetailRepository.swift */,
+				BFD76AEB2897C1D20095F611 /* StationSearchRespository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BFD76AF12897C9310095F611 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BF5941D628942911006869EA /* AppDelegate.swift */,
+				BF5941D828942911006869EA /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +266,9 @@
 				BFD76AE7289636A50095F611 /* RealtimeArrivalNetwork.swift in Sources */,
 				BF5941D928942911006869EA /* SceneDelegate.swift in Sources */,
 				BF5941EB28942955006869EA /* StationSearchViewController.swift in Sources */,
+				BFD76AEC2897C1D20095F611 /* StationSearchRespository.swift in Sources */,
 				BF5941FE2894349E006869EA /* StationSearchNetwork.swift in Sources */,
+				BFD76AEE2897C47B0095F611 /* StationDetailRepository.swift in Sources */,
 				BFD76AE9289636FF0095F611 /* ArrivalData.swift in Sources */,
 				BF5941ED28942966006869EA /* StationSearchViewModel.swift in Sources */,
 			);
@@ -379,7 +411,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KB3R84Q4BQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SubwayRealTimeArrival/Info.plist;
+				INFOPLIST_FILE = SubwayRealTimeArrival/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -406,7 +438,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KB3R84Q4BQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SubwayRealTimeArrival/Info.plist;
+				INFOPLIST_FILE = SubwayRealTimeArrival/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

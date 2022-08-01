@@ -20,20 +20,11 @@ struct StationSearchViewModel {
     let cellData: Driver<[Station]>
     let selectedStation = PublishSubject<Station>()
     
-    init() {
+    init(_ model: StationSearch = StationSearch()) {
         
         cellData = keyword
-            .flatMapLatest { query in
-                StationSearchNetwork()
-                    .searchStation(query: query ?? "")
-            }
-            .compactMap{ result -> SearchInfoBySubwayNameServiceData? in
-                guard case .success(let data) = result else { return nil }
-                return data
-            }
-            .map { data in
-                return data.SearchInfoBySubwayNameService.row
-            }
+            .flatMapLatest (model.fetchStationData)
+            .compactMap(model.parseData)
             .asDriver(onErrorJustReturn: [])
         
     }
