@@ -23,6 +23,13 @@ class StationDetailViewController: UIViewController {
     
     func bind(_ viewModel: StationDetailViewModel) {
         
+        tableView.rx.itemSelected
+            .subscribe(onNext: {
+                self.tableView.cellForRow(at: $0)?.isSelected = false
+            })
+            .disposed(by: disposeBag)
+            
+        
         viewModel.cellData
             .drive(tableView.rx.items) { tv, row, data in
                 let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
