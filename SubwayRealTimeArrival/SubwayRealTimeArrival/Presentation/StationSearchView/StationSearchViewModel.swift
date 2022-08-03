@@ -20,11 +20,11 @@ struct StationSearchViewModel {
     let cellData: Driver<[Station]>
     let selectedStation = PublishSubject<Station>()
     
-    init(_ model: StationSearch = StationSearch()) {
+    init(_ repository: StationSearch = StationSearch()) {
         
         cellData = keyword
-            .flatMapLatest (model.fetchStationData)
-            .compactMap(model.parseData)
+            .flatMapLatest (repository.fetchStationData)
+            .compactMap(repository.parseData)
             .asDriver(onErrorJustReturn: [])
         
     }

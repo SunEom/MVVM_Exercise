@@ -15,10 +15,10 @@ struct StationDetailViewModel {
     
     let cellData: Driver<[RealtimeArrivalData]>
     
-    init(_ model: StationDetail = StationDetail()) {
+    init(_ repository: StationDetail = StationDetail()) {
         cellData = station
-            .flatMapLatest(model.fetchRealtimeArrivalData)
-            .compactMap(model.parseData)
+            .flatMapLatest(repository.fetchRealtimeArrivalData)
+            .compactMap(repository.parseData)
             .asDriver(onErrorJustReturn: [])
     }
 }

@@ -17,7 +17,6 @@
 		BF5941F4289429B6006869EA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF5941F3289429B6006869EA /* RxRelay */; };
 		BF5941F6289429B6006869EA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF5941F5289429B6006869EA /* RxSwift */; };
 		BF5941F928943244006869EA /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5941F828943244006869EA /* Station.swift */; };
-		BF5941FC28943388006869EA /* StationSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5941FB28943388006869EA /* StationSearchAPI.swift */; };
 		BF5941FE2894349E006869EA /* StationSearchNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5941FD2894349E006869EA /* StationSearchNetwork.swift */; };
 		BFD76AE1289633A90095F611 /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AE0289633A90095F611 /* StationDetailViewController.swift */; };
 		BFD76AE3289633E10095F611 /* StationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD76AE2289633E10095F611 /* StationDetailViewModel.swift */; };
@@ -37,7 +36,6 @@
 		BF5941EA28942955006869EA /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
 		BF5941EC28942966006869EA /* StationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewModel.swift; sourceTree = "<group>"; };
 		BF5941F828943244006869EA /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
-		BF5941FB28943388006869EA /* StationSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchAPI.swift; sourceTree = "<group>"; };
 		BF5941FD2894349E006869EA /* StationSearchNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchNetwork.swift; sourceTree = "<group>"; };
 		BFD76AE0289633A90095F611 /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
 		BFD76AE2289633E10095F611 /* StationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewModel.swift; sourceTree = "<group>"; };
@@ -120,19 +118,10 @@
 		BF5941FA28943379006869EA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BFD76AE5289636840095F611 /* RealtimeArrival */,
-				BF5941FF289434A2006869EA /* StationSearch */,
+				BF5941FD2894349E006869EA /* StationSearchNetwork.swift */,
+				BFD76AE6289636A50095F611 /* RealtimeArrivalNetwork.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		BF5941FF289434A2006869EA /* StationSearch */ = {
-			isa = PBXGroup;
-			children = (
-				BF5941FB28943388006869EA /* StationSearchAPI.swift */,
-				BF5941FD2894349E006869EA /* StationSearchNetwork.swift */,
-			);
-			path = StationSearch;
 			sourceTree = "<group>";
 		};
 		BFD76AE4289634990095F611 /* StationDetailView */ = {
@@ -142,14 +131,6 @@
 				BFD76AE2289633E10095F611 /* StationDetailViewModel.swift */,
 			);
 			path = StationDetailView;
-			sourceTree = "<group>";
-		};
-		BFD76AE5289636840095F611 /* RealtimeArrival */ = {
-			isa = PBXGroup;
-			children = (
-				BFD76AE6289636A50095F611 /* RealtimeArrivalNetwork.swift */,
-			);
-			path = RealtimeArrival;
 			sourceTree = "<group>";
 		};
 		BFD76AEF2897C6FB0095F611 /* SupportingFiles */ = {
@@ -260,7 +241,6 @@
 			files = (
 				BFD76AE1289633A90095F611 /* StationDetailViewController.swift in Sources */,
 				BF5941D728942911006869EA /* AppDelegate.swift in Sources */,
-				BF5941FC28943388006869EA /* StationSearchAPI.swift in Sources */,
 				BFD76AE3289633E10095F611 /* StationDetailViewModel.swift in Sources */,
 				BF5941F928943244006869EA /* Station.swift in Sources */,
 				BFD76AE7289636A50095F611 /* RealtimeArrivalNetwork.swift in Sources */,
