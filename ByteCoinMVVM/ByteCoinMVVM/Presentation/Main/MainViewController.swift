@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     let picker = ItemPicker()
     let iconImageView = UIImageView()
     let stackView = UIStackView()
-    let costLabel = UILabel()
+    let priceLabel = UILabel()
     let currencyLabel = UILabel()
     
     override func viewDidLoad() {
@@ -27,10 +27,18 @@ class MainViewController: UIViewController {
     }
     
     func bind(_ viewModel: MainViewModel) {
+        
         picker.bind(viewModel.itemPickerViewModel)
         
         viewModel.itemPickerViewModel.selectedCurreny
             .bind(to: currencyLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.price
+            .map { rate -> String in
+                return String(format: "%.3f", rate)
+            }
+            .bind(to: priceLabel.rx.text)
             .disposed(by: disposeBag)
     }
     
@@ -49,8 +57,8 @@ class MainViewController: UIViewController {
         iconImageView.image = UIImage(systemName: "bitcoinsign.circle.fill")
         iconImageView.tintColor = UIColor(named: "Icon Color")
         
-        costLabel.text = "...."
-        costLabel.font = .systemFont(ofSize: 30)
+        priceLabel.text = "...."
+        priceLabel.font = .systemFont(ofSize: 30)
         
         currencyLabel.text = "AUD"
         currencyLabel.font = .systemFont(ofSize: 30)
@@ -58,12 +66,12 @@ class MainViewController: UIViewController {
     }
     
     private func layout() {
-        [titleLabel, stackView, costLabel, iconImageView, picker].forEach {
+        [titleLabel, stackView, priceLabel, iconImageView, picker].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
         
-        [iconImageView, costLabel, currencyLabel].forEach{ self.stackView.addArrangedSubview($0)}
+        [iconImageView, priceLabel, currencyLabel].forEach{ self.stackView.addArrangedSubview($0)}
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.spacing = 10
         stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 3, leading: 10, bottom: 3, trailing: 10)

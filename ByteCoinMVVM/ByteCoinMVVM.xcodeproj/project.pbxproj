@@ -11,6 +11,9 @@
 		BF08F89B289A13E7006E9148 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F89A289A13E7006E9148 /* MainViewModel.swift */; };
 		BF08F89E289A14B2006E9148 /* ItemPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F89D289A14B2006E9148 /* ItemPicker.swift */; };
 		BF08F8A0289A14C2006E9148 /* ItemPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F89F289A14C2006E9148 /* ItemPickerViewModel.swift */; };
+		BF08F8A4289A332B006E9148 /* CoinPriceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F8A3289A332B006E9148 /* CoinPriceNetwork.swift */; };
+		BF08F8A7289A350B006E9148 /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F8A6289A350B006E9148 /* CoinData.swift */; };
+		BF08F8A9289A40D6006E9148 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F8A8289A40D6006E9148 /* Env.swift */; };
 		BF607D67289A10AD00A863CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607D66289A10AD00A863CE /* AppDelegate.swift */; };
 		BF607D69289A10AD00A863CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607D68289A10AD00A863CE /* SceneDelegate.swift */; };
 		BF607D70289A10AE00A863CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF607D6F289A10AE00A863CE /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		BF08F89A289A13E7006E9148 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BF08F89D289A14B2006E9148 /* ItemPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPicker.swift; sourceTree = "<group>"; };
 		BF08F89F289A14C2006E9148 /* ItemPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPickerViewModel.swift; sourceTree = "<group>"; };
+		BF08F8A3289A332B006E9148 /* CoinPriceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPriceNetwork.swift; sourceTree = "<group>"; };
+		BF08F8A6289A350B006E9148 /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
+		BF08F8A8289A40D6006E9148 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		BF607D63289A10AD00A863CE /* ByteCoinMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteCoinMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF607D66289A10AD00A863CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF607D68289A10AD00A863CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,22 @@
 			path = ItemPicker;
 			sourceTree = "<group>";
 		};
+		BF08F8A2289A32D2006E9148 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BF08F8A3289A332B006E9148 /* CoinPriceNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BF08F8A5289A3501006E9148 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BF08F8A6289A350B006E9148 /* CoinData.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		BF607D5A289A10AD00A863CE = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,8 @@
 		BF607D65289A10AD00A863CE /* ByteCoinMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				BF08F8A5289A3501006E9148 /* Entity */,
+				BF08F8A2289A32D2006E9148 /* Network */,
 				BF607D7C289A10FF00A863CE /* Presentation */,
 				BF607D7B289A10EE00A863CE /* Delegate */,
 				BF607D7A289A10E400A863CE /* SupportingFiles */,
@@ -123,6 +147,7 @@
 			children = (
 				BF607D6F289A10AE00A863CE /* Assets.xcassets */,
 				BF607D74289A10AE00A863CE /* Info.plist */,
+				BF08F8A8289A40D6006E9148 /* Env.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -269,7 +294,10 @@
 			files = (
 				BF607D7F289A112700A863CE /* MainViewController.swift in Sources */,
 				BF08F8A0289A14C2006E9148 /* ItemPickerViewModel.swift in Sources */,
+				BF08F8A4289A332B006E9148 /* CoinPriceNetwork.swift in Sources */,
+				BF08F8A9289A40D6006E9148 /* Env.swift in Sources */,
 				BF08F89E289A14B2006E9148 /* ItemPicker.swift in Sources */,
+				BF08F8A7289A350B006E9148 /* CoinData.swift in Sources */,
 				BF607D67289A10AD00A863CE /* AppDelegate.swift in Sources */,
 				BF607D69289A10AD00A863CE /* SceneDelegate.swift in Sources */,
 				BF08F89B289A13E7006E9148 /* MainViewModel.swift in Sources */,
