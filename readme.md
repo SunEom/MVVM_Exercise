@@ -17,3 +17,16 @@
    - 현재 위와 무관하게 정상적으로 작동되는 것을 확인 (2022.08.01 기준)
    - 검색 가능역 : 서울시 모든 역
 
+## 2. 비트코인 환율 계산기  - ByteCoinMVVM
+[Refactoring 이전 코드](https://github.com/SunEom/IOS-Development-Bootcamp/tree/main/ByteCoin)
+
+진행 상황 : ing...
+
+### 사용 기술 및 특징
+
+1. RxSwift, RxCocoa
+2. AutoLayout 코드 구현 (StoryBoard 및 SnapKit 사용 X) 
+3. URLSession을 이용한 비동기 HTTP 통신
+4. CoinAPI를 이용한 [환율 계산 API](https://docs.coinapi.io/#exchange-rates) 활용 
+5. UIPickerView의 RxSwift 적용
+
