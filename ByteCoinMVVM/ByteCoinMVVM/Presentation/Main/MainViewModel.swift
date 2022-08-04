@@ -13,20 +13,12 @@ struct MainViewModel {
     
     let price: Observable<Double>
     
-    init() {
+    init(repository: CoinDataRepository = CoinDataRepository()) {
         
         price = self.itemPickerViewModel.selectedCurreny
-            .flatMapLatest {
-                CoinPriceNetwork().fetchCoinPrice(query: $0)
-            }
-            .map { result -> CoinData? in
-                guard case .success(let data) = result else { return nil }
-                return data
-            }
-            .map { data in
-                guard let rate = data?.rate else { return 0.0 }
-                return Double(Int(rate*1000)) * 0.001
-            }
+            .flatMapLatest(repository.fetchCoinPrice)
+            .map(repository.parseData)
+            .map(repository.roundRate)
             
     }
 }

@@ -19,6 +19,7 @@
 		BF607D70289A10AE00A863CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF607D6F289A10AE00A863CE /* Assets.xcassets */; };
 		BF607D73289A10AE00A863CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF607D71289A10AE00A863CE /* LaunchScreen.storyboard */; };
 		BF607D7F289A112700A863CE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF607D7E289A112700A863CE /* MainViewController.swift */; };
+		BF808BE9289BB27000263984 /* CoinDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF808BE8289BB27000263984 /* CoinDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		BF607D72289A10AE00A863CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF607D74289A10AE00A863CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF607D7E289A112700A863CE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BF808BE8289BB27000263984 /* CoinDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataRepository.swift; sourceTree = "<group>"; };
 		E9234D0C3CC3BAA766F4ED22 /* Pods-ByteCoinMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteCoinMVVM.debug.xcconfig"; path = "Target Support Files/Pods-ByteCoinMVVM/Pods-ByteCoinMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 		BF607D65289A10AD00A863CE /* ByteCoinMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				BF808BE7289BB25A00263984 /* Repository */,
 				BF08F8A5289A3501006E9148 /* Entity */,
 				BF08F8A2289A32D2006E9148 /* Network */,
 				BF607D7C289A10FF00A863CE /* Presentation */,
@@ -176,6 +179,14 @@
 				BF607D71289A10AE00A863CE /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		BF808BE7289BB25A00263984 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BF808BE8289BB27000263984 /* CoinDataRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 				BF08F8A0289A14C2006E9148 /* ItemPickerViewModel.swift in Sources */,
 				BF08F8A4289A332B006E9148 /* CoinPriceNetwork.swift in Sources */,
 				BF08F8A9289A40D6006E9148 /* Env.swift in Sources */,
+				BF808BE9289BB27000263984 /* CoinDataRepository.swift in Sources */,
 				BF08F89E289A14B2006E9148 /* ItemPicker.swift in Sources */,
 				BF08F8A7289A350B006E9148 /* CoinData.swift in Sources */,
 				BF607D67289A10AD00A863CE /* AppDelegate.swift in Sources */,
