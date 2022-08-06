@@ -7,14 +7,16 @@
 
 import RxSwift
 
-struct StationSearch {
+struct StationSearchRepository {
     
-    func fetchStationData (query: String?) -> Single<Result<SearchInfoBySubwayNameServiceData, Error>> {
+    func fetchStationData (query: String?) -> Observable<[Station]> {
         StationSearchNetwork()
             .searchStation(query: query ?? "")
+            .asObservable()
+            .compactMap(parseData)
     }
     
-    func parseData(result: Result<SearchInfoBySubwayNameServiceData, Error>) -> [Station]? {
+    private func parseData(result: Result<SearchInfoBySubwayNameServiceData, Error>) -> [Station]? {
         guard case .success(let data) = result else { return nil }
         return data.SearchInfoBySubwayNameService.row
     }    

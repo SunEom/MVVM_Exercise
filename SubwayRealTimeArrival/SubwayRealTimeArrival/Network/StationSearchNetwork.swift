@@ -16,7 +16,6 @@ enum StationSearchError: Error {
 
 struct StationSearchNetwork {
     private let session: URLSession
-    let api = StationSearchAPI()
     
     init(session: URLSession = .shared) {
         self.session = session

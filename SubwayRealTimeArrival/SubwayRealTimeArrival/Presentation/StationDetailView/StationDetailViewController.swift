@@ -48,7 +48,6 @@ class StationDetailViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        
     }
     
     private func attribute() {

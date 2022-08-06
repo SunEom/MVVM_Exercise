@@ -74,17 +74,8 @@ class StationSearchViewController : UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.cellSelected
-            .withLatestFrom(viewModel.cellData) { idx, stations in
-                return stations[idx]
-            }
-            .subscribe(onNext: {
-                viewModel.selectedStation.onNext($0)
-            })
-            .disposed(by: disposeBag)
-        
         viewModel.selectedStation
-            .subscribe(onNext: {
+            .drive(onNext: {
                 let vm = StationDetailViewModel()
                 let vc = StationDetailViewController()
                 vc.bind(vm)

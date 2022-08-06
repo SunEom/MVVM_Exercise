@@ -18,7 +18,6 @@ struct StationDetailViewModel {
     init(_ repository: StationDetail = StationDetail()) {
         cellData = station
             .flatMapLatest(repository.fetchRealtimeArrivalData)
-            .compactMap(repository.parseData)
             .asDriver(onErrorJustReturn: [])
     }
 }

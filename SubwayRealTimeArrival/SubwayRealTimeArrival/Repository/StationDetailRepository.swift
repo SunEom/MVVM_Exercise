@@ -9,12 +9,14 @@ import RxSwift
 
 struct StationDetail {
     
-    func fetchRealtimeArrivalData(station: Station) -> Single<Result<ArrivalData, Error>> {
+    func fetchRealtimeArrivalData(station: Station) -> Observable<[RealtimeArrivalData]> {
         return RealtimeArrivalNetwork()
             .fetchRealtimeArrivalData(for: station)
+            .asObservable()
+            .compactMap(parseData)
     }
     
-    func parseData(result: Result<ArrivalData, Error>) -> [RealtimeArrivalData]? {
+    private func parseData(result: Result<ArrivalData, Error>) -> [RealtimeArrivalData]? {
         guard case .success(let data) = result else { return nil }
         return data.realtimeArrivalList
     }

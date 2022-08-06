@@ -146,8 +146,8 @@
 		BFD76AF02897C7B40095F611 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BFD76AED2897C47B0095F611 /* StationDetailRepository.swift */,
 				BFD76AEB2897C1D20095F611 /* StationSearchRespository.swift */,
+				BFD76AED2897C47B0095F611 /* StationDetailRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";

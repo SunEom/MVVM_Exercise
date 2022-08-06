@@ -18,14 +18,20 @@ struct StationSearchViewModel {
     let cellSelected = PublishRelay<Int>()
     
     let cellData: Driver<[Station]>
-    let selectedStation = PublishSubject<Station>()
+    let selectedStation: Driver<Station>
+        
     
-    init(_ repository: StationSearch = StationSearch()) {
+    init(_ repository: StationSearchRepository = StationSearchRepository()) {
         
         cellData = keyword
             .flatMapLatest (repository.fetchStationData)
-            .compactMap(repository.parseData)
             .asDriver(onErrorJustReturn: [])
+        
+        selectedStation = cellSelected
+            .withLatestFrom(cellData) { idx, stations in
+                return stations[idx]
+            }
+            .asDriver(onErrorJustReturn: Station(name: "", line: ""))
         
     }
 }
