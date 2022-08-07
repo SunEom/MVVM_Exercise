@@ -21,7 +21,7 @@
 ## 2. 비트코인 환율 계산기  - ByteCoinMVVM
 [Refactoring 이전 코드](https://github.com/SunEom/IOS-Development-Bootcamp/tree/main/ByteCoin)
 
-진행 상황 : ing...
+진행 상황 : Code reviewing...
 
 ### 사용 기술 및 특징
 
