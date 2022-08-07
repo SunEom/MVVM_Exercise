@@ -24,15 +24,7 @@ class ItemPicker: UIPickerView {
                 viewModel.selectedIdx.onNext($0.row)
             })
             .disposed(by: disposeBag)
-        
-        Observable
-            .combineLatest(viewModel.currencyList, viewModel.selectedIdx) { list, idx in
-                return list[idx]
-            }
-            .subscribe(onNext: {
-                viewModel.selectedCurreny.onNext($0)
-            })
-            .disposed(by: disposeBag)
+
             
     }
     

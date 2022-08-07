@@ -9,17 +9,21 @@ import Foundation
 import RxSwift
 
 struct CoinDataRepository {
-    func fetchCoinPrice(query: String) -> Single<Result<CoinData, CoinPriceNetworkError>> {
+    func fetchCoinPrice(query: String) -> Observable<String> {
         CoinPriceNetwork().fetchCoinPrice(query: query)
+            .asObservable()
+            .compactMap(parseData)
+            .map(toString)
+            
     }
     
-    func parseData(result: Result<CoinData, CoinPriceNetworkError>) -> CoinData? {
+    private func parseData(result: Result<CoinData, CoinPriceNetworkError> ) -> CoinData? {
         guard case .success(let data) = result else { return nil }
         return data
     }
     
-    func roundRate(data: CoinData?) -> Double {
-        guard let rate = data?.rate else { return 0.0 }
-        return Double(Int(rate*1000)) * 0.001
+    private func toString(data: CoinData?) -> String {
+        return String(format: "%.3f", data?.rate ?? 0.0)
     }
+    
 }

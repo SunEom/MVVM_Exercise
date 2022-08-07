@@ -9,16 +9,27 @@ import RxSwift
 import RxCocoa
 
 struct MainViewModel {
+    let disposeBag = DisposeBag()
+    
     let itemPickerViewModel = ItemPickerViewModel()
     
-    let price: Observable<Double>
+    let price = PublishSubject<String>()
+    
+    let selectedData = PublishSubject<(String, String)>()
     
     init(repository: CoinDataRepository = CoinDataRepository()) {
-        
-        price = self.itemPickerViewModel.selectedCurreny
-            .flatMapLatest(repository.fetchCoinPrice)
-            .map(repository.parseData)
-            .map(repository.roundRate)
             
+        itemPickerViewModel.selectedCurreny
+            .flatMapLatest(repository.fetchCoinPrice)
+            .bind(to: price)
+            .disposed(by: disposeBag)
+        
+        price
+            .withLatestFrom(itemPickerViewModel.selectedCurreny) { priceString, currency in
+                (priceString, currency)
+            }
+            .bind(to: selectedData)
+            .disposed(by: disposeBag)
+        
     }
 }

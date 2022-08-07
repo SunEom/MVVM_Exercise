@@ -28,18 +28,18 @@ class MainViewController: UIViewController {
     
     func bind(_ viewModel: MainViewModel) {
         
-        picker.bind(viewModel.itemPickerViewModel)
+        picker.bind(viewModel.itemPickerViewModel)                   
         
-        viewModel.itemPickerViewModel.selectedCurreny
+        viewModel.selectedData
+            .map { $0.0 }
+            .bind(to: priceLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.selectedData
+            .map { $0.1 }
             .bind(to: currencyLabel.rx.text)
             .disposed(by: disposeBag)
         
-        viewModel.price
-            .map { rate -> String in
-                return String(format: "%.3f", rate)
-            }
-            .bind(to: priceLabel.rx.text)
-            .disposed(by: disposeBag)
     }
     
     private func attribute() {
